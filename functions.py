@@ -11,4 +11,6 @@ db.init_app(app)  # Initialize the database with the Flask app
 
 
 def edit_customer(id):
-    
+
+
+def get_orders()
