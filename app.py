@@ -1,29 +1,30 @@
+import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from dotenv import load_dotenv  # Load environment variables
+
+# Load .env file
+load_dotenv()
 
 app = Flask(__name__)
 
-# Database Configuration
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:your_mysql_password@localhost/restaurant'
+# Secure Database Configuration
+DB_USER = os.getenv("DB_USER")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
+DB_HOST = os.getenv("DB_HOST")
+DB_DATABASE = os.getenv("DB_DATABASE")
+
+app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/{DB_DATABASE}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-# Define Users Model
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False)
-    email = db.Column(db.String(100), unique=True, nullable=False)
-    password = db.Column(db.String(255), nullable=False)
-    created_at = db.Column(db.DateTime, default=db.func.current_timestamp())
+# Import models after initializing db
+from model.user import User
 
-    def __repr__(self):
-        return f'<User {self.name}>'
-
-# Test Route
 @app.route('/')
 def index():
-    return "Connected to MySQL Successfully!"
+    return "Flask + MySQL Connection Successful!"
 
 if __name__ == '__main__':
     app.run(debug=True)
