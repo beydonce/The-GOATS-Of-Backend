@@ -10,63 +10,103 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 db.init_app(app)  # Initialize the database with the Flask app
 
 
-def edit_customer(id):
-
 def get_customer():
-    """מחזיר מידע על כל הלקוחות"""
-    pass
+    try:
+        # לוגיקה לשליפת לקוח
+        pass
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 def add_customer():
-    """מוסיף לקוח חדש למערכת"""
-    pass
+    try:
+        # לוגיקה להוספת לקוח
+        pass
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 def delete_customer(id):
-    """מוחק לקוח לפי מזהה"""
-    pass
+    try:
+        # לוגיקה למחיקת לקוח
+        pass
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 def edit_customer(id):
-    """עורך מידע של לקוח לפי מזהה"""
-    pass
+    try:
+        # לוגיקה לעריכת לקוח
+        pass
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 # פונקציות לניהול מכירות
 def get_sales():
-    """מחזיר את כל המכירות"""
-    pass
+    try:
+        # לוגיקה לשליפת מכירות
+        pass
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 def add_sale():
-    """מוסיף מכירה חדשה למערכת"""
-    pass
+    try:
+        # לוגיקה להוספת מכירה
+        pass
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 def delete_sale(id):
-    """מוחק מכירה לפי מזהה"""
-    pass
+    try:
+        # לוגיקה למחיקת מכירה
+        pass
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 # פונקציות לניהול שולחנות
 def get_tables():
-    """מחזיר רשימת שולחנות במסעדה"""
-    pass
+    try:
+        # לוגיקה לשליפת שולחנות
+        pass
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 def add_table():
-    """מוסיף שולחן חדש"""
-    pass
+    try:
+        # לוגיקה להוספת שולחן
+        pass
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 def delete_table(id):
-    """מוחק שולחן לפי מזהה"""
-    pass
+    try:
+        # לוגיקה למחיקת שולחן
+        pass
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 # פונקציות לניהול הזמנות
 def get_orders():
-    """מחזיר את כל ההזמנות"""
-    pass
+    try:
+        # לוגיקה לשליפת הזמנות
+        pass
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 def add_order():
-    """מוסיף הזמנה חדשה למערכת"""
-    pass
+    try:
+        # לוגיקה להוספת הזמנה
+        pass
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 def delete_order(id):
-    """מוחק הזמנה לפי מזהה"""
-    pass
+    try:
+        # לוגיקה למחיקת הזמנה
+        pass
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 def edit_order(id):
-    """עורך מידע של הזמנה לפי מזהה"""
-    pass
+    try:
+        # לוגיקה לעריכת הזמנה
+        pass
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
