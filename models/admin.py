@@ -1,11 +1,11 @@
-from db import db
-
-class Admin(db.Model):
-    __tablename__ = 'admin'
-
-    admin_id = db.Column(db.Integer, primary_key=True)
-    admin_name = db.Column(db.String(45), nullable=False)
-    admin_password = db.Column(db.String(45), nullable=False)
-
-    def __repr__(self):
-        return f"<Admin {self.admin_name}>"
+class Admin:
+    @staticmethod
+    def get_admin_by_username(username):
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+        sql = "SELECT * FROM admin WHERE username = %s"
+        cursor.execute(sql, (username,))
+        admin = cursor.fetchone()
+        cursor.close()
+        conn.close()
+        return admin
